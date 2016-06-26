@@ -5,7 +5,7 @@ class App extends React.Component {
 		super();
 		this.state = {
 			messages: [
-				'Hello Codecamp PagSeguro',
+				'Hello everbody Codecamp PagSeguro',
 				'This is a React App!'
 			]
 		};
@@ -14,7 +14,7 @@ class App extends React.Component {
 	render() {
 		var messageNodes = this.state.messages.map((message) => {
 			return (
-					<div>{message}</div>
+					<div>{message}<span>Teste</span></div>
 				);
 		});
 
