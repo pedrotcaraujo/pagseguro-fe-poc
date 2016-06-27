@@ -1,26 +1,34 @@
 import React from 'react';
+import MessageList from './MessageList.jsx';
+import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import AppBar from 'material-ui/AppBar';
 
 class App extends React.Component {
 	constructor() {
 		super();
-		this.state = {
-			messages: [
-				'Hello everbody Codecamp PagSeguro',
-				'This is a React App!'
-			]
+
+	}
+
+	static childContextTypes = {
+		muiTheme: React.PropTypes.object
+	}
+
+	getChildContext() {
+		return {
+			muiTheme: getMuiTheme(baseTheme)
 		};
 	}
 
-	render() {
-		var messageNodes = this.state.messages.map((message) => {
-			return (
-					<div>{message}<span>Teste</span></div>
-				);
-		});
 
+	render() {
 		return (
-				<div>{messageNodes}</div>
-			);
+			<div>
+				<AppBar title="PagSeguro React APP" />
+				<MessageList />
+			</div>
+		)
 	}
 }
 
